@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미스터리 랩</title>
+    <style>
+        /* CSS 스타일링은 여기에 작성합니다. */
+    </style>
+</head>
+<body>
+    <h1>미스터리 랩</h1>
+    <label for="numberInput">숫자 입력:</label>
+    <input type="number" id="numberInput">
+    <button onclick="displayText()">힌트</button>
+    <p id="displayText"></p>
+
+    <script>
+        // JavaScript 코드는 여기에 작성합니다.
+        function displayText() {
+            var number = document.getElementById("numberInput").value;
+            var displayArea = document.getElementById("displayText");
+
+            // 숫자에 따른 문구 설정
+            var text = "";
+            if (number == 1) {
+                text = "힌트 1 : ㅇㅇㅇㅇ";
+            } else if (number == 2) {
+                text = "힌트 2 : ㅇㅇㅇㅇ";
+            } else if (number == 3) {
+                text = "힌트 3 : ㅇㅇㅇㅇ";
+            } else {
+                text = "해당하는 숫자의 힌트가 없습니다.";
+            }
+
+            // 문구 출력
+            displayArea.innerText = text;
+        }
+    </script>
+</body>
+</html>
