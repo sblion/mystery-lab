@@ -10,7 +10,7 @@
 </head>
 <body>
     <h1>미스터리 랩</h1>
-    <label for="numberInput">숫자 입력:</label>
+    <label for="numberInput">힌트 (카드번호 입력) :</label>
     <input type="number" id="numberInput">
     <button onclick="displayText()">힌트</button>
     <p id="displayText"></p>
@@ -24,7 +24,7 @@
             // 숫자에 따른 문구 설정
             var text = "";
             if (number == 1) {
-                text = "힌트 1 : ㅇㅇㅇㅇ";
+                text = "힌트 1 : 카드 속에 여러 숫자가 숨겨져있다. 눈 크게 뜨고 잘 찾아보자.";
             } else if (number == 2) {
                 text = "힌트 2 : ㅇㅇㅇㅇ";
             } else if (number == 3) {
