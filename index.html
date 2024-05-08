@@ -66,9 +66,10 @@
             } else if (number == 9) {
                 text = "힌트 9 : 나가는 문을 열기 위해선, 금고 속에서 나온 편지로 ‘어디로 가야할지’를 알아야 한다."
                 hint = "추가힌트 9 : 우리는 ‘oooo중학교’로 가야한다. 작은 따옴표 안의 답을 '플레이'칸에 입력하자."
-            }
-            
-            else {
+            } else if (number == 28) {
+                text = "힌트 28 : 녹취록 속에 숫자 3개가 숨어있다. 찾아서 카드를 열어보자."
+                hint = "추가힌트 28 : 16,8,11 카드를 열어 학교 모양을 순서대로 바르게 조합하면 특정 단어가 나온다. 해당 단어가 우리가 향해야 할 중학교 이름이다. 플레이칸에 입력해보자"
+            }            else {
                 text = "해당하는 숫자의 힌트가 없습니다.";
             }
 
@@ -108,7 +109,14 @@
                 playOutput.innerHTML = "<img src='b.jpg' alt='B'>";
             } else if (playInput === 'HeLi') {
                 playOutput.innerHTML = "<br><iframe width='560' height='315' src='https://www.youtube.com/embed/9QnqbH3prvU' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
-            } else {
+            } else if (playInput === 'BC' || playInput === 'CB') {
+                playOutput.innerHTML = "모스부호표를 해독하세요"
+            } else if (playInput === 'BeN') {
+                playOutput.innerHTML = "<br><img src='녹취록.jpg' alt='BeN'>"
+            }
+            
+            
+            else {
                 playOutput.innerHTML = "잘못된 단어입니다. 대소문자를 구분해주세요.";
             }
         }
