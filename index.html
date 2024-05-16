@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미스터리 랩</title>
+    <style>
+        /* CSS 스타일링은 여기에 작성합니다. */
+        #buttonContainer {
+            margin-top: 20px;
+        }
+
+        #buttonContainer button {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>미스터리 랩</h1>
+    <label for="numberInput">힌트(카드 번호 입력):</label>
+    <input type="number" id="numberInput">
+    <button onclick="displayText()">힌트</button>
+    <p id="displayText"></p>
+
+    <div id="buttonContainer" style="display: none;">
+        <button id="hintButton" onclick="showHint()">추가힌트보기</button>
+    </div>
+    
+    <p id="hintText" style="display: none;"></p>
+
+    <label for="playInput">플레이(영어 알파벳 입력):</label>
+    <input type="text" id="playInput">
+    <button onclick="displayPlay()">플레이</button>
+    <div id="playOutput"></div>
+
+    <script>
+        // JavaScript 코드는 여기에 작성합니다.
+        function displayText() {
+            var number = document.getElementById("numberInput").value;
+            var displayArea = document.getElementById("displayText");
+            var hintText = document.getElementById("hintText");
+            var buttonContainer = document.getElementById("buttonContainer");
+            var hintButton = document.getElementById("hintButton");
+
+            var text = "";
+            var hint = "";
+
+            // 숫자에 따른 문구 설정
+            if (number == 1) {
+                text = "힌트 1 : 카드 속에 여러 숫자가 숨겨져있다. 눈 크게 뜨고 잘 찾아보자.";
+                hint = "추가 힌트 1: 헬륨, 리튬, 베릴륨, 붕소, 탄소, 플루오린 원소가 숨겨져 있다. 각 원소의 원소기호에 해당하는 카드를 열어보자.";
+            } else if (number == 2) {
+                text = "힌트 2 : 리모컨으로 어떤 물체를 키고 끌 수 있다. 해당 물체가 있는 카드를 옆에 나란히 놔둬보자.";
+                hint = "추가 힌트 2 : 2번과 3번 카드를 나란히 놓으면 4글자의 단어가 나타난다(2번이 왼쪽, 3번이 오른쪽). 구글폼에 입력해보자.";
+            } else if (number == 3) {
+                text = "힌트 3 : TV를 키기 위해선 어떤 물체가 필요하다. 해당 물체가 있는 카드를 옆에 나란히 놔둬보자.";
+                hint = "추가 힌트 3 : 2번과 3번 카드를 나란히 놓으면 4글자의 단어가 나타난다(2번이 왼쪽, 3번이 오른쪽). 구글폼에 입력해보자.";
+            } else {
+                text = "해당하는 숫자의 힌트가 없습니다.";
+            }
+
+            // 문구 출력
+            displayArea.innerText = text;
+
+            // 힌트 설정
+            hintText.innerText = hint;
+
+            // 숫자 입력 후 버튼 보이도록 설정
+            buttonContainer.style.display = "block";
+            hintButton.style.display = "block";
+        }
+
+        function showHint() {
+            var hintText = document.getElementById("hintText");
+            var hintButton = document.getElementById("hintButton");
+            if (!hintText) return; // 요소가 없으면 함수 종료
+            hintText.style.display = "block";
+            hintButton.style.display = "none"; // 추가힌트보기 버튼 숨김
+        }
+
+        function resetPage() {
+            document.getElementById("numberInput").value = "";
+            document.getElementById("displayText").innerText = "";
+            document.getElementById("hintText").innerText = "";
+            document.getElementById("hintText").style.display = "none";
+            document.getElementById("buttonContainer").style.display = "none";
+        }
+
+        function displayPlay() {
+            var playInput = document.getElementById("playInput").value;
+            var playOutput = document.getElementById("playOutput");
+
+            // 각 알파벳에 대한 처리
+            if (playInput === 'SONa') {
+                playOutput.innerHTML = "<br><img src='탈출.png' alt='SONa'>";
+            } else if (playInput === 'HeLi') {
+                playOutput.innerHTML = "<br>2,3 카드를 버리세요.<br>";
+                playOutput.innerHTML += "<br><iframe width='560' height='315' src='https://www.youtube.com/embed/9QnqbH3prvU' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
+            } else if (playInput === 'BC' || playInput === 'CB') {
+                playOutput.innerHTML = "모스부호표를 해독하세요"
+            } else if (playInput === 'BeN') {
+                playOutput.innerHTML = "<br><img src='카드21.jpg' alt='BeN'>"
+            } else if (playInput === 'ONaS') {
+                playOutput.innerHTML = "<br>잘못된 단어입니다. <br>힌트 : 3장의 학교 카드를 순서대로 놓아보자. "
+            } else if (playInput === 'FILE') {
+                playOutput.innerHTML = "<br>4,5,6,7 카드를 버리세요.<br>";
+                playOutput.innerHTML += "<br><img src='녹취록.jpg' alt='FILE'>";
+            }
+            else {
+                playOutput.innerHTML = "잘못된 단어입니다. 대소문자를 구분해주세요.";
+            }
+        }
+
+
+    </script>
+</body>
+</html>
